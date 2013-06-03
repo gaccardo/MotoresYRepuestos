@@ -8,11 +8,11 @@
 response.logo = A(B('web',SPAN(2),'py'),XML('&trade;&nbsp;'),
                   _class="brand",_href="http://www.web2py.com/")
 response.title = request.application.replace('_',' ').title()
-response.subtitle = T('customize me!')
+response.subtitle = T('Motores y Repuestos')
 
 ## read more at http://dev.w3.org/html5/markup/meta.name.html
-response.meta.author = 'Your Name <you@example.com>'
-response.meta.description = 'a cool new app'
+response.meta.author = 'Motores y Repuestos <info@motoresyrepuestos.com.ar>'
+response.meta.description = 'Sitio corporativo de Motores y Repuestos'
 response.meta.keywords = 'web2py, python, framework'
 response.meta.generator = 'Web2py Web Framework'
 
