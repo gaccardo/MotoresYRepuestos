@@ -81,3 +81,41 @@ use_janrain(auth, filename='private/janrain.key')
 
 ## after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
+
+db.define_table('category', Field('name', 'string'),
+                            Field('description', 'text'),
+                            Field('picture', 'upload'),
+                            Field('pictureInternal', 'upload'),
+                            format='%(name)s'
+               )
+
+db.define_table('subcategory', Field('name', 'string'),
+                               Field('description', 'text'),
+                               Field('category', db.category),
+                               format='%(name)s'
+               )
+
+db.define_table('product', Field('name', 'string'),
+                           Field('description', 'text'),
+                           Field('picture', 'upload'),
+                           Field('subcategory', db.subcategory),
+                           format='%(name)s'
+               )
+
+db.define_table('field', Field('name', 'string'),
+                         Field('myvalue', 'string'),
+                         Field('product', db.product),
+               )
+
+db.define_table('mycomment', Field('myuser', db.auth_user),
+                             Field('product', db.product),
+                             Field('mycomment', 'text')
+               )
+
+db.define_table('slider', Field('picture', 'upload'),
+                          Field('piccomment', 'string')
+               )
+
+db.define_table('headline', Field('title', 'string'),
+                            Field('texto', 'text')
+               )

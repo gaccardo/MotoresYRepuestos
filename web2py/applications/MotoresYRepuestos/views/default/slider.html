@@ -1,0 +1,4 @@
+{{for pic in pictures:}}
+ {{=URL('default', 'download', args=pic.picture)}}
+ <a href="http://www.google.com"><img src="{{=URL('default', 'download', args=pic.picture)}}" title="{{=pic.piccomment}}" alt="{{=pic.piccomment}}" /></a>
+{{pass}}

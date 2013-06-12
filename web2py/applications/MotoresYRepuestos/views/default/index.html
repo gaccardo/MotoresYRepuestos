@@ -1,35 +1,139 @@
-{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
-{{if 'message' in globals():}}
-<h3>{{=message}}</h3>
+<!-- headline -->
+<div class="clear"></div>
+<div id="headline">
+ <span class="main">{{=headline.title}}</span>
+ <p class="dropcap dark" style="margin-top:15px;line-height:30px;">
+  {{=headline.texto}} 
+ </p>
+</div>
+<!-- ENDS headline -->
 
-<h4>{{=T('How did you get here?')}}</h4>
-<ol>
-  <li>{{=T('You are successfully running web2py')}}</li>
-  <li>{{=XML(T('You visited the url %s', A(request.env.path_info,_href=request.env.path_info)))}}</li>
-  <li>{{=XML(T('Which called the function %s located in the file %s',
-             (A(request.function+'()',_href='#'),
-              A('web2py/applications/%(application)s/controllers/%(controller)s.py'%request,
-               _href=URL('admin','default','peek', args=(request.application,'controllers',request.controller+'.py'))))))}}</li>
-  <li>{{=XML(T('The output of the file is a dictionary that was rendered by the view %s',
-           A('web2py/applications/%(application)s/views/%(controller)s/index.html'%request,
-           _href=URL('admin','default','peek',args=(request.application,'views',request.controller,'index.html')))))}}</li>
-  <li>{{=T('You can modify this application and adapt it to your needs')}}</li>
-</ol>
-{{elif 'content' in globals():}}
-{{=content}}
-{{else:}}
-{{=BEAUTIFY(response._vars)}}
-{{pass}}
+<div id="content">
+ <!-- TABS -->
+ <!-- the tabs -->
+ <ul class="tabs">
+  <li><a href="#"><span>Categorías de productos</span></a></li>
+  <li><a href="#"><span>Información de contacto</span></a></li>
+  <li><a href="#"><span>Recent posts</span></a></li>
+ </ul>
 
-{{block right_sidebar}}
-{{=A(T("Administrative Interface"), _href=URL('admin','default','index'), _class='btn',
-     _style='margin-top: 1em;')}}
-<h6>{{=T("Don't know what to do?")}}</h6>
-<ul>
-  <li>{{=A(T("Online examples"), _href=URL('examples','default','index'))}}</li>
-  <li><a href="http://web2py.com">web2py.com</a></li>
-  <li><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
-</ul>
-{{end}}
+ <div class="panes">
+  <!-- CATEGORY -->
+  <div>
+   <ul class="blocks-thumbs thumbs-rollover">
+    <li>
+     <a href="single.html" class="thumb" title="An image"><img style="height: 232px !important;" src="{{=URL('static', 'images/local/jbc.jpg')}}" alt="Post" /></a>
+     <div class="excerpt">
+      <a href="single.html" class="header" style="padding-bottom: 36px;">Jardín, bosque y campo</a>
+      <p class="dropcap dark">Disponemos de la más amplia variedad de productos, para múltiples usos, seleccionados según su uso profesional o doméstico. Asesoramiento personalizado a través de nuestros especialistas, le permitirán obtener el mayor rendimiento de los elementos que Ud. necesite. A través de nuestras representadas, le permitirán obtener repuestos originales, consumibles, lubricantes y servicio técnico ca .....</p>
+     </div>
+     <a href="features-accordion.html" class="link-button"><span>Seguir Leyendo &#8594;</span></a>
+    </li>
+    <li>
+     <a href="single.html" class="thumb" title="An image"><img src="{{=URL('static', 'images/local/mgm.jpg')}}" alt="Post" /></a>
+     <div class="excerpt">
+      <a href="single.html" class="header" style="padding-bottom: 36px;">Motores, motobombas y grupos electrógenos</a>
+      <p class="dropcap dark">Productos acorde a su requerimiento, en múltiples potencias y tipo de uso. Equipos para Servicio de auxilio (menos de 800 horas al año) y utilización momentánea con un grupo equipado con motor a gasolina o diesel regulado a 3.000 r.p.m. Servicio continuo utilización intensiva o condiciones de funcionamiento muy severas con un grupo equipado con motor diesel regulado a 1.500 r.p.m.
+La línea de grupos electrógenos .....</p>
+     </div>
+     <a href="single.html" class="link-button"><span>Seguir Leyendo &#8594;</span></a>
+    </li>
+    <li>
+     <a href="single.html" class="thumb" title="An image"><img src="{{=URL('static', 'images/local/me.jpg')}}" alt="Post" /></a>
+     <div class="excerpt">
+      <a href="single.html" class="header">Maquinaria y elementos para la construcción</a>
+      <p class="dropcap dark">La línea más completa en productos para la construcción; mezcla, hormigón, equipos de elevación, transporte en obra, etc. ampliamente confiables y robustos. Disponemos de un departamento técnico al cuál podrá consultar, para definir la maquinaria o accesorio que más se adapte a vuestras necesidades.
+En la actualidad contamos con numerosos usuarios, entre los que se cuentan Municipalidades ..... </p>
+     </div>
+     <a href="single.html" class="link-button"><span>Seguir Leyendo &#8594;</span></a>
+    </li>
+   </ul>
+  </div>
+  <!-- ENDS CATEGORY -->
+
+  <!-- Information  -->
+  <div>
+   <div class="plain-text">
+    <center><p style="font-style:italic"><k><b> Háganos llegar sus inquietudes y necesidades para que lo asesoremos personal e integralmente.</b></k> </p></center>
+    <div class="one-half">
+     <h6 class="line-divider">Medios de comunicación</h6>
+     <ul>
+      <li style="margin-bottom: 20px;margin-top: 20px"><img src="img/mono-icons/phone32.png" class="alignleft"><b>Por teléfono:</b><br> (54 11) 4300 - 0833</li>
+      <li style="margin-bottom: 20px;margin-top: 20px"><img src="img/mono-icons/printer32.png" class="alignleft"><b>Por fax:</b> <br> (54 11) 4300 - 0833</li>
+      <li style="margin-bottom: 20px;margin-top: 20px"><img src="img/mono-icons/mail32.png" class="alignleft"><b>Por email:</b> <br> info@motoresyrepuestos.com.ar</li>
+     </ul>
+
+     <img src="img/mono-icons/download32.png" class="alignleft"><b> Dirección: </b><br> Av. Independencia 772, Capital Federal<br>
+
+     <img src="http://maps.googleapis.com/maps/api/staticmap?center=AvIndependencia+772+Buenos+Aires+Argentina&zoom=16&size=400x300&sensor=false&markers=size:mid%7Ccolor:0xFFFF00%7Clabel:B%7CAvIndependencia+772+Buenos+Aires+Argentina">
+    </div>
+
+    <div class="one-half last">
+     <h6 class="line-divider">Dejános tu mensaje</h6>
+
+     <form id="commentform">
+      <fieldset>
+       <div>
+        <label>NOMBRE</label>
+        <input type="text" name="nombre" id="nombre" value tabindex="1">
+       </div>
+       <div>
+        <label>E-MAIL</label>
+        <input type="text" name="email" id="email" value tabindex="2">
+       </div>
+       <div>
+        <label>TEMA</label>
+        <input type="text" name="tema" id="tema" value tabindex="3">
+       </div>
+       <div>
+        <label>MENSAJE</label>
+        <textarea name="mensaje" id="mensaje" rows=10 tabindex="4"></textarea>
+       </div>
+       <div><input type="submit" id="submit" tabindex="5" value="ENVIAR">
+      </div>
+     </fieldset>
+    </form>
+   </div>
+  </div>
+ </div>
+ <!-- ENDS Information -->
+
+ <!-- Posts -->
+ <div>
+  <ul class="blocks-thumbs thumbs-rollover">
+   <li>
+    <a href="single.html" class="thumb" title="An image"><img src="img/dummies/282x150.gif" alt="Post" /></a>
+    <div class="excerpt">
+     <a href="single.html" class="header">Lorem ipsum dolor</a>
+     Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+    </div>
+    <a href="single.html" class="link-button"><span>Read more &#8594;</span></a>
+   </li>
+   <li>
+    <a href="single.html" class="thumb" title="An image"><img src="img/dummies/282x150.gif" alt="Post" /></a>
+    <div class="excerpt">
+     <a href="single.html" class="header">Lorem ipsum dolor</a>
+     Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+    </div>
+    <a href="single.html" class="link-button"><span>Read more &#8594;</span></a>
+   </li>
+   <li>
+    <a href="single.html" class="thumb" title="An image"><img src="img/dummies/282x150.gif" alt="Post" /></a>
+    <div class="excerpt">
+     <a href="single.html" class="header">Lorem ipsum dolor</a>
+     Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra.
+    </div>
+    <a href="single.html" class="link-button"><span>Read more &#8594;</span></a>
+   </li>
+  </ul>
+ </div>
+ <!-- ENDS posts -->
+</div>
+<!-- ENDS TABS -->
+
+
+</div>
+<!-- ENDS content -->
+
